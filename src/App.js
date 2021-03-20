@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef, useState } from "react";
+import "./App.css";
+import Mahjong from "./containers/Mahjong/Mahjong";
+import CardGenerator from "./components/CardGenerator/CardGenerator";
+
+export const ContextApp = React.createContext();
 
 function App() {
+  //Here can be state of input-option
+  const cardsTotal = 10;
+  const prevCards = useRef([]);
+  const prevCardValue = useRef(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Mahjong>
+      <ContextApp.Provider value={[prevCards, prevCardValue]}>
+        <CardGenerator cardsTotal={cardsTotal} />
+      </ContextApp.Provider>
+    </Mahjong>
   );
 }
 

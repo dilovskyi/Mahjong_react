@@ -1,0 +1,18 @@
+.Mahjong {
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: calc(8 * 4px);
+  justify-content: space-between;
+  grid-template: calc(8 * 12px) / repeat(10, calc(8 * 9px));
+  grid-auto-rows: calc(8 * 12px);
+  justify-items: center;
+  &__title {
+    grid-column-start: 1;
+    grid-column-end: 11;
+    font-size: 40px;
+    font-weight: 600;
+    align-self: center;
+  }
+}
